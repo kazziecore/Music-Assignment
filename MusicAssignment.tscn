@@ -1,0 +1,263 @@
+[gd_scene load_steps=25 format=3 uid="uid://c716i2oov852v"]
+
+[ext_resource type="Script" path="res://button1.gd" id="1_cvs0o"]
+[ext_resource type="AudioStream" uid="uid://d2tiy2qdarv4u" path="res://samples/kitty-meow-85182.mp3" id="2_1tan3"]
+[ext_resource type="Script" path="res://button_2.gd" id="3_eo8pf"]
+[ext_resource type="AudioStream" uid="uid://bap3i2i06dvrx" path="res://samples/boo-womp-sfx_E_major.wav" id="4_2p2cd"]
+[ext_resource type="Script" path="res://button_3.gd" id="5_qnayc"]
+[ext_resource type="AudioStream" uid="uid://bq83crhmvjrrr" path="res://samples/cartoon-silly-phone-call_65bpm_G#_major.wav" id="6_3lekh"]
+[ext_resource type="Script" path="res://button_4.gd" id="7_41a6r"]
+[ext_resource type="AudioStream" uid="uid://dte3fe1j7n01y" path="res://samples/do-80236.mp3" id="8_8xdir"]
+[ext_resource type="AudioStream" uid="uid://23l8ask7vmpo" path="res://samples/fa-78409.mp3" id="9_8vdx2"]
+[ext_resource type="Script" path="res://button_5.gd" id="9_l8p8x"]
+[ext_resource type="Script" path="res://button_7.gd" id="11_ekg53"]
+[ext_resource type="Script" path="res://button_6.gd" id="11_n82qj"]
+[ext_resource type="AudioStream" uid="uid://xnxwkdyom6ys" path="res://samples/si-80238.mp3" id="12_6b56s"]
+[ext_resource type="AudioStream" uid="uid://dp0tjpfjpd2w5" path="res://samples/sol-101774.mp3" id="12_vqm12"]
+[ext_resource type="Script" path="res://button_8.gd" id="15_ltp5l"]
+[ext_resource type="AudioStream" uid="uid://c2m04a10oh1iy" path="res://samples/clown-horn-44595.mp3" id="16_r8rry"]
+[ext_resource type="Texture2D" uid="uid://jq3x1p5jj08i" path="res://ClownBoy1.png" id="17_m18v1"]
+[ext_resource type="Texture2D" uid="uid://bagtato0iovo0" path="res://ClownBoy2.png" id="18_tdq1x"]
+[ext_resource type="Script" path="res://pitch_slider.gd" id="19_xjf7g"]
+[ext_resource type="AudioStream" uid="uid://c7qqws7smltjt" path="res://please-calm-my-mind-125566.mp3" id="20_d83lc"]
+
+[sub_resource type="GDScript" id="GDScript_rqp3n"]
+
+[sub_resource type="Animation" id="Animation_hryc6"]
+resource_name = "ClownBoy"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.233333, 1.03333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [ExtResource("17_m18v1"), ExtResource("18_tdq1x"), ExtResource("17_m18v1")]
+}
+
+[sub_resource type="Animation" id="Animation_67nxf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("17_m18v1")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3w4ss"]
+_data = {
+"ClownBoy": SubResource("Animation_hryc6"),
+"RESET": SubResource("Animation_67nxf")
+}
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1.0
+offset_top = 1.0
+offset_right = -1.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = SubResource("GDScript_rqp3n")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.137
+anchor_top = 0.307
+anchor_right = 0.137
+anchor_bottom = 0.307
+offset_left = -114.824
+offset_top = -38.936
+offset_right = 86.176
+offset_bottom = 63.064
+grow_vertical = 2
+theme_override_font_sizes/font_size = 36
+text = "meow :3"
+script = ExtResource("1_cvs0o")
+
+[node name="Meow" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_1tan3")
+
+[node name="Button2" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.14
+anchor_top = 0.532
+anchor_right = 0.14
+anchor_bottom = 0.532
+offset_left = -117.28
+offset_top = -71.736
+offset_right = 82.72
+offset_bottom = 32.264
+theme_override_font_sizes/font_size = 31
+text = "boowomp :["
+script = ExtResource("3_eo8pf")
+
+[node name="BooWomp" type="AudioStreamPlayer" parent="Button2"]
+stream = ExtResource("4_2p2cd")
+
+[node name="Button3" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.122
+anchor_top = 0.647
+anchor_right = 0.122
+anchor_bottom = 0.647
+offset_left = -98.544
+offset_top = -30.256
+offset_right = 106.456
+offset_bottom = 68.744
+theme_override_font_sizes/font_size = 31
+text = "yapyapyap"
+script = ExtResource("5_qnayc")
+
+[node name="Yap" type="AudioStreamPlayer" parent="Button3"]
+stream = ExtResource("6_3lekh")
+
+[node name="Button4" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.883
+anchor_top = 0.299
+anchor_right = 0.883
+anchor_bottom = 0.299
+offset_left = -105.216
+offset_top = -53.752
+offset_right = 98.784
+offset_bottom = 45.248
+theme_override_font_sizes/font_size = 31
+text = "do"
+script = ExtResource("7_41a6r")
+
+[node name="Do Piano" type="AudioStreamPlayer" parent="Button4"]
+stream = ExtResource("8_8xdir")
+
+[node name="Button5" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.881
+anchor_top = 0.5
+anchor_right = 0.881
+anchor_bottom = 0.5
+offset_left = -100.912
+offset_top = -64.0
+offset_right = 100.088
+offset_bottom = 35.0
+theme_override_font_sizes/font_size = 31
+text = "fa"
+script = ExtResource("9_l8p8x")
+
+[node name="Fa Piano" type="AudioStreamPlayer" parent="Button5"]
+stream = ExtResource("9_8vdx2")
+
+[node name="Button6" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.885
+anchor_top = 0.667
+anchor_right = 0.885
+anchor_bottom = 0.672
+offset_left = -106.52
+offset_top = -54.216
+offset_right = 100.48
+offset_bottom = 47.544
+theme_override_font_sizes/font_size = 31
+text = "si"
+script = ExtResource("11_n82qj")
+
+[node name="Si Piano" type="AudioStreamPlayer" parent="Button6"]
+stream = ExtResource("12_6b56s")
+
+[node name="Button7" type="Button" parent="."]
+layout_mode = 0
+offset_left = 914.0
+offset_top = 499.0
+offset_right = 1121.0
+offset_bottom = 600.0
+theme_override_font_sizes/font_size = 31
+text = "sol"
+script = ExtResource("11_ekg53")
+
+[node name="Sol Piano" type="AudioStreamPlayer" parent="Button7"]
+stream = ExtResource("12_vqm12")
+
+[node name="Button8" type="Button" parent="."]
+layout_mode = 0
+offset_left = 44.0
+offset_top = 501.0
+offset_right = 245.0
+offset_bottom = 601.0
+theme_override_font_sizes/font_size = 31
+text = "honk"
+script = ExtResource("15_ltp5l")
+
+[node name="Honk" type="AudioStreamPlayer" parent="Button8"]
+stream = ExtResource("16_r8rry")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(600, 417)
+scale = Vector2(2.14912, 1.97368)
+texture = ExtResource("17_m18v1")
+
+[node name="ClownBoy" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_3w4ss")
+}
+
+[node name="pitch_slider" type="HSlider" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.312
+anchor_top = 0.316
+anchor_right = 0.312
+anchor_bottom = 0.316
+offset_left = -103.424
+offset_top = -62.768
+offset_right = 104.576
+offset_bottom = 63.232
+max_value = 2.0
+step = 0.001
+script = ExtResource("19_xjf7g")
+
+[node name="Button9" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.08
+anchor_top = 0.067
+anchor_right = 0.08
+anchor_bottom = 0.067
+offset_left = -75.16
+offset_top = -21.416
+offset_right = 75.84
+offset_bottom = 21.584
+text = "Play Music"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Button9"]
+stream = ExtResource("20_d83lc")
+volume_db = -0.13
+
+[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
+[connection signal="pressed" from="Button2" to="Button2" method="_on_pressed"]
+[connection signal="pressed" from="Button3" to="Button" method="_on_button_3_pressed"]
+[connection signal="pressed" from="Button3" to="Button3" method="_on_pressed"]
+[connection signal="pressed" from="Button4" to="Button4" method="_on_pressed"]
+[connection signal="pressed" from="Button5" to="Button5" method="_on_pressed"]
+[connection signal="pressed" from="Button6" to="Button6" method="_on_pressed"]
+[connection signal="pressed" from="Button7" to="Button7" method="_on_pressed"]
+[connection signal="pressed" from="Button8" to="Button8" method="_on_pressed"]
+[connection signal="value_changed" from="pitch_slider" to="pitch_slider" method="_on_value_changed"]
